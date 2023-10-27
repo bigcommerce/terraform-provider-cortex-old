@@ -516,12 +516,10 @@ Optional:
 <a id="nestedatt--slack--channels"></a>
 ### Nested Schema for `slack.channels`
 
-Required:
-
-- `name` (String) Slack channel name.
-
 Optional:
 
+- `id` (String) Slack channel ID. Either this or name must be set.
+- `name` (String) Slack channel name. Either this or name must be set.
 - `notifications_enabled` (Boolean) Whether the slack channel should receive notifications.
 
 
