@@ -1973,12 +1973,14 @@ func (o *CatalogEntitySlackResourceModel) FromApiModel(ctx context.Context, diag
 }
 
 type CatalogEntitySlackChannelResourceModel struct {
+	ID                   types.String `tfsdk:"id"`
 	Name                 types.String `tfsdk:"name"`
 	NotificationsEnabled types.Bool   `tfsdk:"notifications_enabled"`
 }
 
 func (o *CatalogEntitySlackChannelResourceModel) AttrTypes() map[string]attr.Type {
 	return map[string]attr.Type{
+		"id":                    types.StringType,
 		"name":                  types.StringType,
 		"notifications_enabled": types.BoolType,
 	}
@@ -1986,6 +1988,7 @@ func (o *CatalogEntitySlackChannelResourceModel) AttrTypes() map[string]attr.Typ
 
 func (o *CatalogEntitySlackChannelResourceModel) ToApiModel() cortex.CatalogEntitySlackChannel {
 	return cortex.CatalogEntitySlackChannel{
+		ID:                   o.ID.ValueString(),
 		Name:                 o.Name.ValueString(),
 		NotificationsEnabled: o.NotificationsEnabled.ValueBool(),
 	}
@@ -1993,6 +1996,7 @@ func (o *CatalogEntitySlackChannelResourceModel) ToApiModel() cortex.CatalogEnti
 
 func (o *CatalogEntitySlackChannelResourceModel) FromApiModel(entity *cortex.CatalogEntitySlackChannel) CatalogEntitySlackChannelResourceModel {
 	return CatalogEntitySlackChannelResourceModel{
+		ID:                   types.StringValue(entity.ID),
 		Name:                 types.StringValue(entity.Name),
 		NotificationsEnabled: types.BoolValue(entity.NotificationsEnabled),
 	}

@@ -671,12 +671,13 @@ func (o *CatalogEntitySlack) Enabled() bool {
 }
 
 type CatalogEntitySlackChannel struct {
-	Name                 string `json:"name" yaml:"name"`
+	ID                   string `json:"id,omitempty" yaml:"id,omitempty"`
+	Name                 string `json:"name,omitempty" yaml:"name,omitempty"`
 	NotificationsEnabled bool   `json:"notificationsEnabled,omitempty" yaml:"notificationsEnabled,omitempty"`
 }
 
 func (o *CatalogEntitySlackChannel) Enabled() bool {
-	return o.Name != ""
+	return o.Name != "" || o.ID != ""
 }
 
 /***********************************************************************************************************************

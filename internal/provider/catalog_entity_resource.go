@@ -964,9 +964,13 @@ func (r *CatalogEntityResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						NestedObject: schema.NestedAttributeObject{
 							Attributes: map[string]schema.Attribute{
+								"id": schema.StringAttribute{
+									MarkdownDescription: "Slack channel ID. Either this or name must be set.",
+									Optional:            true,
+								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Slack channel name.",
-									Required:            true,
+									MarkdownDescription: "Slack channel name. Either this or name must be set.",
+									Optional:            true,
 								},
 								"notifications_enabled": schema.BoolAttribute{
 									MarkdownDescription: "Whether the slack channel should receive notifications.",

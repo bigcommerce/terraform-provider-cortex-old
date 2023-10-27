@@ -2,6 +2,7 @@ Changelog for the Cortex terraform provider.
 
 ## Unreleased
 
+* Add ability for IDs in `x-cortex-slack` channels
 * Add `x-cortex-coralogix` support
 * Add `x-cortex-k8s` support
 
